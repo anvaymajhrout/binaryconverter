@@ -1,0 +1,181 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    width: 350px;
+    height: 400px;
+    position: relative;
+    padding: 25px;
+    background: radial-gradient(178.94% 106.41% at 26.42% 106.41%, #FFF7B1 0%, rgba(255, 255, 255, 0) 71.88%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #FFFFFF;
+    box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 87px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 23px;
+    transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.input {
+    max-width: 290px;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 2px 2px 7px 0 rgb(0, 0, 0, 0.2);
+    outline: none;
+    color: dimgray;
+    font-size: 16px;
+}
+
+.convert-button {
+    max-width: 190px;
+    padding: 10px 20px;
+    background-color: #4c9beb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center;
+}
+
+.convert-button:hover {
+    background-color: #3a7cbf;
+}
+
+.output-card {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: none;
+}
+
+.output {
+    font-size: 16px;
+    color: #333;
+}
+
+.copy-button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #4c9beb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.copy-button:hover {
+    background-color: #3a7cbf;
+}
+
+.select {
+    width: fit-content;
+    cursor: pointer;
+    position: relative;
+    transition: 300ms;
+    color: white;
+    overflow: hidden;
+}
+
+.selected {
+    background-color: #2a2f3b;
+    padding: 5px;
+    margin-bottom: 3px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 100000;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.arrow {
+    position: relative;
+    right: 0px;
+    height: 10px;
+    transform: rotate(-90deg);
+    width: 25px;
+    fill: white;
+    z-index: 100000;
+    transition: 300ms;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #2a2f3b;
+    position: relative;
+    top: -100px;
+    opacity: 0;
+    transition: 300ms;
+}
+
+.select:hover > .options {
+    opacity: 1;
+    top: 0;
+}
+
+.select:hover > .selected .arrow {
+    transform: rotate(0deg);
+}
+
+.option {
+    border-radius: 5px;
+    padding: 5px;
+    transition: 300ms;
+    background-color: #2a2f3b;
+    width: 150px;
+    font-size: 15px;
+}
+
+.option:hover {
+    background-color: #323741;
+}
+
+.options input[type="radio"] {
+    display: none;
+}
+
+.options label {
+    display: inline-block;
+}
+
+.options label::before {
+    content: attr(data-txt);
+}
+
+.options input[type="radio"]:checked + label {
+    display: none;
+}
+
+.select:has(.options input[type="radio"]:checked) .selected::before {
+    content: attr(data-txt);
+}

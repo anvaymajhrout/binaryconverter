@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary-Text Converter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <span id="converter-heading">Binary-Text Converter</span>
+            </div>
+            <div class="select" data-default="Select an option">
+                <div class="selected" data-default="Select an option"></div>
+                <svg class="arrow" viewBox="0 0 10 10">
+                    <polyline points="1,1 5,6 9,1" />
+                </svg>
+                <div class="options">
+                    <input type="radio" id="option-1" name="option" value="binary-to-text" onclick="updateHeading(this)">
+                    <label for="option-1" data-txt="Binary to Text"></label>
+                    <input type="radio" id="option-2" name="option" value="text-to-binary" onclick="updateHeading(this)">
+                    <label for="option-2" data-txt="Text to Binary"></label>
+                </div>
+            </div>
+            <input class="input" id="input-field" type="text" placeholder="Enter your value here">
+            <button class="convert-button" onclick="convert()">Convert</button>
+            <div id="output-card" class="output-card">
+                <div class="card-header">
+                    <span>Result:</span>
+                </div>
+                <div id="output" class="output"></div>
+                <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
